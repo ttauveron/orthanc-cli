@@ -34,6 +34,22 @@ pub fn build_cli() -> App<'static> {
                 .long("password")
                 .value_name("PASSWORD"),
         )
+        .arg(
+            Arg::new("iap_client_id")
+                .display_order(2)
+                .about("IAP client id")
+                .takes_value(true)
+                .long("iap-client-id")
+                .value_name("ID"),
+        )
+        .arg(
+            Arg::new("google_application_credentials")
+                .display_order(2)
+                .about("google service account file path")
+                .takes_value(true)
+                .long("google-application-credentials")
+                .value_name("FILE"),
+        )
         .subcommand(
             App::new("patient")
                 .setting(clap::AppSettings::SubcommandRequiredElseHelp)

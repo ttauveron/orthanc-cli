@@ -311,6 +311,26 @@ pub fn get_password(cmd_option: Option<&str>) -> Option<String> {
     }
 }
 
+pub fn get_iap_client_id(cmd_option: Option<&str>) -> Option<String> {
+    match cmd_option {
+        Some(s) => Some(s.to_string()),
+        None => match env::var("IAP_CLIENT_ID") {
+            Ok(s) => Some(s),
+            Err(_) => None, // TODO: This will hide the error
+        },
+    }
+}
+
+pub fn get_google_application_credentials(cmd_option: Option<&str>) -> Option<String> {
+    match cmd_option {
+        Some(s) => Some(s.to_string()),
+        None => match env::var("GOOGLE_APPLICATION_CREDENTIALS") {
+            Ok(s) => Some(s),
+            Err(_) => None, // TODO: This will hide the error
+        },
+    }
+}
+
 pub fn check_columns_option(
     original_header: &[&str],
     requested_columns: &[&str],

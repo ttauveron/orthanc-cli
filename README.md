@@ -73,6 +73,11 @@ $ export ORC_ORTHANC_USERNAME=orthanc
 $ export ORC_ORTHANC_PASSWORD=orthanc
 ```
 
+Example with GCP Identity-Aware Proxy authentication:
+```
+orthanc --server https://my.orthanc.com --iap-client-id 000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com --google-application-credentials $GOOGLE_APPLICATION_CREDENTIALS instance
+```
+
 ## Usage
 
 ### Help

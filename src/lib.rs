@@ -71,10 +71,16 @@ impl Orthanc {
         server_address: String,
         username: Option<String>,
         password: Option<String>,
+        iap_client_id: Option<String>,
+        google_application_credentials: Option<String>,
     ) -> Result<Orthanc> {
         let mut client = Client::new(server_address);
         client = match (username, password) {
             (Some(u), Some(p)) => client.auth(u, p),
+            _ => client,
+        };
+        client = match (iap_client_id, google_application_credentials) {
+            (Some(id), Some(sa)) => client.google_oidc(id, sa),
             _ => client,
         };
         Ok(Orthanc { client })

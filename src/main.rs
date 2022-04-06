@@ -14,6 +14,8 @@ fn main() {
         server_address,
         get_username(matches.value_of("username")),
         get_password(matches.value_of("password")),
+        get_iap_client_id(matches.value_of("iap_client_id")),
+        get_google_application_credentials(matches.value_of("google_application_credentials")),
     ) {
         Ok(o) => o,
         Err(e) => return exit_with_error(e),

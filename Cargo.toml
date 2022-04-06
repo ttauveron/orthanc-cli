@@ -17,7 +17,8 @@ build = "build.rs"
 [dependencies]
 clap = "3.0.0-beta.2"
 comfy-table = "2.1"
-orthanc = "0.8"
+# orthanc = "0.8"
+orthanc = { path = "../orthanc-rs" }
 serde_json = "1.0"
 serde_yaml = "0.8"
 
